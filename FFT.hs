@@ -2,7 +2,7 @@ module TimeSeries.FFT
 ( dft
 ) where
 
-import qualified TimeSeries.TimeSeries as TimeSeries
+import TimeSeries.TimeSeries (TimeSeries (..))
 import Data.Complex (Complex (..), cis)
 
 splitEvenOdd :: [a] -> ([a], [a])
@@ -13,7 +13,7 @@ splitEvenOdd xs = splitEvenOdd' xs True ([], [])
           | otherwise = splitEvenOdd' xs True (evens, x:odds)
 
 -- FIXME : currently only works with time series of length 2^n for some n
-dft :: TimeSeries.TimeSeries Double -> TimeSeries.TimeSeries (Complex Double)
+dft :: TimeSeries Double -> TimeSeries (Complex Double)
 dft []    = []
 dft [val] = [val :+ 0]
 dft ts = let n = fromIntegral $ length ts :: Double
