@@ -12,6 +12,7 @@ splitEvenOdd xs = splitEvenOdd' xs True ([], [])
           | isEvenIdx = splitEvenOdd' xs False (x:evens, odds)
           | otherwise = splitEvenOdd' xs True (evens, x:odds)
 
+-- FIXME : currently only works with time series of length 2^n for some n
 dft :: TimeSeries.TimeSeries Double -> TimeSeries.TimeSeries (Complex Double)
 dft []    = []
 dft [val] = [val :+ 0]
