@@ -1,6 +1,5 @@
 module TimeSeries.FFT
-( dft
-) where
+( dft ) where
 
 import TimeSeries.TimeSeries (TimeSeries (..))
 import Data.Complex (Complex (..), cis)
